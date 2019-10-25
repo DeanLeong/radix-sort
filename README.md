@@ -1,4 +1,4 @@
-##Sorting take three!
+## Sorting take three!
 
 Are there faster sortying algorithms? 
 Yes we can! But not by making comparisons.
