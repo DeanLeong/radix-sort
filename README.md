@@ -1,55 +1,34 @@
-## Sorting take three!
+# Distribution Sort Pt. 2 – Radix Sort
 
-Are there faster sortying algorithms? 
-Yes we can! But not by making comparisons.
+Are there faster sortying algorithms? Yes, but not by making comparisons.
 
-Here's a link if you'd like to leanr more about why this is mathmatically.
+Radix sort is a special sorting algorithm that only works on integers, evaluating a single digit at a time. This exploits the nature of integers, knowing that more digits means a greater number.
 
-https://en.wikipedia.org/wiki/Comparison_sort
+## Radix Sort in Action
 
-### Radix Sort 
-- Special sorting algorithm that works on numbers.
-- Exploits the fact that information about the sixe of a number is encoded in the number of digits.
-- More digets means a bigger number
+In action, radix sort proceeds by: 
 
-## Radix sort helpers
-In order to implement implement radix sort, it's helpful to build a few helper functions 
-first:
-mostDigits(nums) - Given an array of numbers, returns the number of digits in the largest numbers in the list
-'example of this in the console'
+1. Starting with the original array.
+1. Figuring out how many digits the largest number has.
+1. Looping from K = 0 up to this largest number of digits.
+1. For each iteration of the loop, creating buckets for each digit (0 to 9) and place each numnber in the corresponding bucket based on its Kth digit.
+1.  Replace our existing array with the values in our buckets, starting with 0 and going up to 9.
+1.  Return list at the end!
 
-# Radix sort Pseudocode
-- Define a funtion that accepts a list of numbers
-- Figure out how many digits the largest number has 
-- Loop from k = 0 up to this largest number of digits 
-- For each iteration of the loop:
-	- Create nuckets for each digit (0 to 9)
-	- Place each numnber in the corresponding bucket based on its kth digit
--  Replace our existing array with the values in our buckets, starting with 0 and going up to 9
--  Return list at the end!
+Let's visualize this:
 
-'The math logic gets a little complicated, but if you ignore this then the logic in the sorting function itself isn't that complicated.'
+https://www.cs.usfca.edu/~galles/visualization/RadixSort.html
 
+## Big O Complexity
 
-Theaoritically radix sort should work better than any of the other comparison sorts.
-However because of the limitations of the way that computers store numbers in memory that may not actually be the case and it may in fact be tied.
+### Worst Case Complexity: `O(nk)`
 
+### Best Case Complexity: `O(nk)`
 
-'The topic of the efficiency of radix sort compared to other sorting algorithms is somewhat tricky and subject to quite a lot of misunderstandings.'
+Radix sort actually has the same best, average, and worst time complexities– `O(nk)`– but a *space* complexity of `O(n + k)`
 
-Follow this thread here  ...
+> *The topic of the efficiency of radix sort compared to other sorting algorithms is somewhat tricky and subject to quite a lot of misunderstandings.*
+> For more, check out this thread:
+> https://stackoverflow.com/questions/48451734/radix-sort-on-log-n-efficiency
 
-https://stackoverflow.com/questions/48451734/radix-sort-on-log-n-efficiency
-
-Radix Sort Big O
-Time-best: O(nk)
-Time-Average: O(nk)
-Time-worst: O(nk)
-Space: O(n + k) 
-
-
-
-
-
-
-
+Theaoritically, radix sort should work better than any of the other comparison sorts, but because of the limitations on the way that computers store numbers in memory, that may not actually be the case. If you'd like to learn more about why this is mathematically possible, check this out: https://en.wikipedia.org/wiki/Comparison_sort
